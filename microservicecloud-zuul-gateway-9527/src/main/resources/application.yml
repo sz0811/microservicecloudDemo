@@ -1,0 +1,43 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:   #客户端注册进eureka服务列表内
+    service-url:
+      #单机
+      #     defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    instance:
+      instance-id: gateway-9527.com   #服务名称修改
+      prefer-ip-address: true   # 访问路径可显示ip
+
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.atguigu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+zuul:
+  host:
+    connect-timeout-millis: 3000  #设置链接超时时间
+    socket-timeout-millis: 3000
+  #屏蔽本身的服务名称
+  ignored-services: microservicecloud-dept # 所有本身微服务名称都屏蔽的用 "*"
+  routes:
+    #设置映射路径
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+  prefix: /atguigu
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 3000
