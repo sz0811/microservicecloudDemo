@@ -1,0 +1,3 @@
+/Users/sunzhi/Documents/java/demo/springcloud/microservice-api/src/main/java/com/atguigu/springcloud/service/DeptClientServiceFallbackFactory.java
+/Users/sunzhi/Documents/java/demo/springcloud/microservice-api/src/main/java/com/atguigu/springcloud/service/DeptClientService.java
+/Users/sunzhi/Documents/java/demo/springcloud/microservice-api/src/main/java/com/atguigu/springcloud/entities/Dept.java
